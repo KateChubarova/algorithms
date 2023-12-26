@@ -1,7 +1,8 @@
 
 
 class stack:
-    def __init__(self):
+    def __init__(self, size):
+        self.size = size
         self.stack = []
         self.max_stack = []
 
@@ -21,16 +22,24 @@ class stack:
             self.max_stack.append(max_top)
 
     def max(self):
-        print(self.max_stack[-1])
+        if len(self.stack) > 0:
+            return self.max_stack[-1]
+        else: return 0
 
-stack = stack()
-n = int(input())
-for i in range(n):
-    command = input()
-    commands = command.split()
-    if commands[0] == 'push':
-        stack.push(int(commands[1]))
-    elif commands[0] == 'max':
-        stack.max()
-    elif commands[0] == 'pop':
-        stack.pop()
+    def is_full(self):
+        return len(self.stack) >= self.size
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+# stack = stack()
+# n = int(input())
+# for i in range(n):
+#     command = input()
+#     commands = command.split()
+#     if commands[0] == 'push':
+#         stack.push(int(commands[1]))
+#     elif commands[0] == 'max':
+#         stack.max()
+#     elif commands[0] == 'pop':
+#         stack.pop()
