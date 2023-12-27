@@ -14,6 +14,7 @@ def process(line):
     elif command == 'del':
         arr[phone] = None
 
+
 arr = [None] * 10000001
 
 n = int(input())
